@@ -1,5 +1,6 @@
 name: UI React - Release
 on:
+  workflow_dispatch:
   push:
     paths:
       - packages/ui/react/src/**
