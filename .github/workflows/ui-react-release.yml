@@ -25,5 +25,5 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npx semantic-release@22.0.12 --tag-format="ui-react-\${version}"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.OWNER_PAT_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
