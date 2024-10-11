@@ -38,6 +38,7 @@ export default defineConfig({
         'es',
         'cjs',
       ],
+      fileName: 'index',
     },
     rollupOptions: {
       external: [

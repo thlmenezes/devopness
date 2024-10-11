@@ -6,16 +6,16 @@
     "access": "public"
   },
   "description": "Devopness Design System React Components - Painless essential DevOps to everyone",
-  "main": "dist/ui-react.cjs",
-  "module": "dist/ui-react.js",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "import": "dist/ui-react.js",
-      "require": "dist/ui-react.cjs",
+      "import": "dist/index.js",
+      "require": "dist/index.cjs",
       "types": "dist/index.d.ts"
     }
   },
