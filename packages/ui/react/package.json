@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "@devopness/ui-react",
   "type": "module",
   "version": "2.146.0",
@@ -14,9 +15,9 @@
   ],
   "exports": {
     ".": {
-      "import": "dist/index.js",
-      "require": "dist/index.cjs",
-      "types": "dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     }
   },
   "scripts": {
