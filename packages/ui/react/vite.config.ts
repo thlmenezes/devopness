@@ -23,7 +23,6 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      'src/': resolve(__dirname, 'src'),
       '@mui/styled-engine': '@mui/styled-engine-sc',
     },
   },
