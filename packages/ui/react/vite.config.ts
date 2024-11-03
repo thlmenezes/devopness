@@ -33,12 +33,17 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: resolve(__dirname, 'src/index.ts'),
+      entry: {
+        colors: resolve(__dirname, 'src/colors/index.ts'),
+        fonts: resolve(__dirname, 'src/fonts/index.ts'),
+        components: resolve(__dirname, 'src/components/index.ts'),
+        hooks: resolve(__dirname, 'src/hooks/index.ts'),
+        icons: resolve(__dirname, 'src/icons/index.ts'),
+      },
       formats: [
         'es',
         'cjs',
       ],
-      fileName: 'index',
     },
     rollupOptions: {
       external: [
