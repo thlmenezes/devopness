@@ -5,6 +5,7 @@ import { StyledLink } from './Link.styled'
 import type { IconProps } from 'src/components/Primitives/Icon'
 import { Icon } from 'src/components/Primitives/Icon'
 import type { Color } from 'src/colors'
+import { getColor } from 'src/colors'
 import type { Unwrap } from 'src/components/types'
 
 type LinkProps = Omit<
@@ -37,7 +38,7 @@ const Link = ({
       rel={rel}
       href={href}
       target={target}
-      color={color}
+      color={getColor(color)}
       $showUnderline={!hideUnderline}
       $showUnderlineOnHover={!hideUnderlineOnHover}
       {...props}
