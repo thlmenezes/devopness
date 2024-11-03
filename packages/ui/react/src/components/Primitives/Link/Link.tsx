@@ -5,6 +5,7 @@ import { StyledLink } from './Link.styled'
 import type { IconProps } from 'src/components/Primitives/Icon'
 import { Icon } from 'src/components/Primitives/Icon'
 import type { Color } from 'src/colors'
+import type { Unwrap } from 'src/components/types'
 
 type LinkProps = Omit<
   HTMLProps<HTMLAnchorElement>,
@@ -13,7 +14,7 @@ type LinkProps = Omit<
   color?: Color
   to?: HTMLProps<HTMLAnchorElement>['href']
   target?: '_blank' | '_self'
-  iconProps?: Omit<IconProps, 'name'>
+  iconProps?: Unwrap<Omit<IconProps, 'name'>>
   hideUnderline?: boolean
   hideUnderlineOnHover?: boolean
   hideExternalUrlIcon?: boolean
