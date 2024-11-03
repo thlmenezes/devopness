@@ -11,7 +11,7 @@ to enable fast iteration by reducing the number of packages that need to be main
 
 The downside of this design choice is that this library requires the user to install all packages.
 
-Using subpaths enables the user to, at least, start thinking about components and other utils as separated concerns.
+Using [subpath exports](https://nodejs.org/docs/v22.11.0/api/packages.html#subpath-exports) enables the user to, at least, start thinking about components and other utils as separated concerns.
 
 This update may require users to update imports.
 
