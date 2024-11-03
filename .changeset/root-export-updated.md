@@ -35,3 +35,16 @@ import { getFont } from "@devopness/ui-react/fonts"
 import { getColor } from "@devopness/ui-react/colors"
 import { iconLoader } from "@devopness/ui-react/icons"
 ```
+
+TROUBLESHOOTING:
+
+```
+Cannot find module '@devopness/ui-react/colors' or its corresponding type declarations
+```
+
+For TypeScript users, this update may require updating your [`moduleResolution config`](https://www.typescriptlang.org/tsconfig/#moduleResolution),
+as the types for each subpath are declared in separate files.
+
+Update `moduleResolution` to one of `bundler`, `nodenext`, `node16`; and the error should be solved.
+
+If you encounter other errors when upgrading to this version, [open an issue](https://github.com/devopness/devopness/issues/new/choose)
