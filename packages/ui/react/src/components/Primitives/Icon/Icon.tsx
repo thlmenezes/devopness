@@ -30,6 +30,8 @@ type IconProps = {
   /**
    * Defines a string value that labels the current element
    *
+   * Uses name as fallback, if prop is undefined
+   *
    * @see {@link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label}
    */
   ariaLabel?: HTMLAttributes<HTMLOrSVGImageElement>['aria-label']
@@ -54,7 +56,7 @@ const Icon = (props: IconProps) => {
     props.size,
     props.opacity !== undefined ? getOpacity(colorHex, props.opacity) : colorHex,
     OPACITY_FULL,
-    props.ariaLabel
+    props.ariaLabel ?? props.name
   )
 }
 
