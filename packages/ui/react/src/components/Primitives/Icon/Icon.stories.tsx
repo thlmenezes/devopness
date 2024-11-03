@@ -17,7 +17,7 @@ const meta = {
       step: 1,
     },
   },
-  render: (props) => (<Icon {...props} opacity={props.opacity/100}/>)
+  render: (props) => (<Icon {...props} opacity={(props.opacity ?? 1)/100}/>)
 } satisfies Meta<typeof Icon>
 
 type Story = StoryObj<typeof meta>
