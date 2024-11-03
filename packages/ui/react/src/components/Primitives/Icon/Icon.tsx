@@ -1,38 +1,62 @@
 import { HTMLAttributes } from 'react'
 
-import { getColor } from 'src/colors'
+import { getColor, getOpacity } from 'src/colors'
 import type { Color } from 'src/colors'
 import { Icon as IconName, iconLoader } from 'src/icons'
 
 type IconProps = {
-  /** Defines which icon to render */
+  /**
+   * Defines which icon to render from Devopness UI Icons
+   *
+   * @see iconLoader
+   */
   name: IconName
   /** Defines element height and width */
   size?: number
-  /** Defines element foreground/fill color */
+  /**
+   * Defines element foreground/fill color
+   *
+   * @see getColor
+   * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/color}
+   * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/fill}
+   */
   color?: Color
-  /** icon opacity, a number between 0 and 1 */
+  /**
+   * Defines the degree to which content behind an element is hidden; is a number in the range 0.0 to 1.0
+   *
+   * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/opacity}
+   */
   opacity?: number
-  /** Defines a string value that labels the current element */
-  label?: HTMLAttributes<HTMLOrSVGImageElement>['aria-label']
+  /**
+   * Defines a string value that labels the current element
+   *
+   * @see {@link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label}
+   */
+  ariaLabel?: HTMLAttributes<HTMLOrSVGImageElement>['aria-label']
 }
 
 /** Color to be used when IconProps.color is undefined */
 const COLOR_FALLBACK = 'purple.800' satisfies Color
+
+/** Represents 100% opacity in range 0.0 to 1.0 */
+const OPACITY_FULL = 1.0 // => '100%'
 
 /**
  * Loads icon from iconLoader
  *
  * @see {@link src/icons/iconLoader.tsx:iconLoader}
  */
-const Icon = (props: IconProps) =>
-  iconLoader(
+const Icon = (props: IconProps) => {
+  const colorHex = getColor(props.color ?? COLOR_FALLBACK)
+
+  return iconLoader(
     props.name,
     props.size,
-    getColor(props.color ?? COLOR_FALLBACK),
-    props.opacity,
-    props.label
+    props.opacity ? getOpacity(colorHex, props.opacity) : colorHex,
+    OPACITY_FULL,
+    props.ariaLabel
   )
+}
 
 export type { IconProps }
 export { Icon }
