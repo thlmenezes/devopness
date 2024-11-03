@@ -21,11 +21,11 @@ const StyledLink = styled.a<StyledLinkProps>`
   color: ${({ color }) => color};
 
   text-decoration: ${(props) => (props.$showUnderline ? 'underline' : 'none')};
-  :hover {
+
+  &:hover {
+    color: ${getColor('blue.950')};
     text-decoration: ${(props) =>
       props.$showUnderlineOnHover ? 'underline' : 'none'};
-
-    color: ${getColor('blue.950')};
   }
 
   & > svg {
