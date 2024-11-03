@@ -3,6 +3,7 @@ import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 
 import { Link } from '.'
+import { getColor } from 'src/colors'
 
 const LinkProps = {
   href: 'https://www.devopness.com',
@@ -23,7 +24,7 @@ describe('Link', () => {
     expect(expectedText).toBeInTheDocument()
   })
 
-  it('render correctly with primary color', () => {
+  it('render correctly with color', () => {
     render(
       <Link
         color="purple.800"
@@ -32,83 +33,26 @@ describe('Link', () => {
     )
 
     const expectedText = screen.getByText('https://www.devopness.com')
-
     expect(expectedText).toBeInTheDocument()
+    expect(expectedText.getAttribute('color')).toEqual(getColor('purple.800'))
   })
 
-  it('render correctly with secondary color', () => {
-    render(
-      <Link
-        color="blue.950"
-        to={LinkProps.href}
-      />
-    )
-
-    const expectedText = screen.getByText('https://www.devopness.com')
-
-    expect(expectedText).toBeInTheDocument()
-  })
-
-  it('render correctly with 13px font-size', () => {
-    render(
-      <Link
-        fontSize="13px"
-        to={LinkProps.href}
-      />
-    )
-
-    const expectedText = screen.getByText('https://www.devopness.com')
-
-    expect(expectedText).toBeInTheDocument()
-  })
-
-  it('render correctly with 14px font-size', () => {
-    render(
-      <Link
-        fontSize="14px"
-        to={LinkProps.href}
-      />
-    )
-
-    const expectedText = screen.getByText('https://www.devopness.com')
-
-    expect(expectedText).toBeInTheDocument()
-  })
-
-  it('render correctly with fontWeight normal', () => {
-    render(
-      <Link
-        fontWeight="normal"
-        to={LinkProps.href}
-      />
-    )
-
-    const expectedText = screen.getByText('https://www.devopness.com')
-
-    expect(expectedText).toBeInTheDocument()
-  })
-  it('render correctly with fontWeight bold', () => {
-    render(
-      <Link
-        fontWeight="bold"
-        to={LinkProps.href}
-      />
-    )
-
-    const expectedText = screen.getByText('https://www.devopness.com')
-
-    expect(expectedText).toBeInTheDocument()
-  })
   it('render correctly with new style', () => {
+    const styles = {
+      color: '#ff0000',
+      backgroundColor: '#00ff00'
+    } satisfies React.CSSProperties
+
     render(
       <Link
-        style={{ color: 'red', backgroundColor: 'blue' }}
+        style={styles}
         to={LinkProps.href}
       />
     )
 
     const expectedText = screen.getByText('https://www.devopness.com')
-
     expect(expectedText).toBeInTheDocument()
+    expect(expectedText).toHaveStyle('color: #ff0000;')
+    expect(expectedText).toHaveStyle('background-color: #00ff00;')
   })
 })
