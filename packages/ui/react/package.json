@@ -7,22 +7,22 @@
     "access": "public"
   },
   "description": "Devopness Design System React Components - Painless essential DevOps to everyone",
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/components.cjs",
+  "module": "dist/components.js",
+  "types": "dist/components.d.ts",
   "files": [
     "dist"
   ],
   "exports": {
+    ".": {
+      "types": "./dist/components.d.ts",
+      "import": "./dist/components.js",
+      "require": "./dist/components.cjs"
+    },
     "./colors": {
       "types": "./dist/colors.d.ts",
       "import": "./dist/colors.js",
       "require": "./dist/colors.cjs"
-    },
-    "./components": {
-      "types": "./dist/components.d.ts",
-      "import": "./dist/components.js",
-      "require": "./dist/components.cjs"
     },
     "./fonts": {
       "types": "./dist/fonts.d.ts",
