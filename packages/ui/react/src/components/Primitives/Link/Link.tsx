@@ -2,10 +2,10 @@ import type { HTMLProps } from 'react'
 import React from 'react'
 
 import { StyledLink } from './Link.styled'
-import type { IconProps } from 'src/components/Primitives/Icon'
-import { Icon } from 'src/components/Primitives/Icon'
 import type { Color } from 'src/colors'
 import { getColor } from 'src/colors'
+import type { IconProps } from 'src/components/Primitives/Icon'
+import { Icon } from 'src/components/Primitives/Icon'
 import type { Unwrap } from 'src/components/types'
 
 type LinkProps = Omit<
@@ -32,8 +32,7 @@ const Link = ({
   hideExternalUrlIcon = false,
   iconProps,
   ...props
-}: React.PropsWithChildren<LinkProps>) => {
-  return (
+}: React.PropsWithChildren<LinkProps>) => (
     <StyledLink
       rel={rel}
       href={href}
@@ -52,7 +51,6 @@ const Link = ({
       )}
     </StyledLink>
   )
-}
 
 export type { LinkProps }
 export { Link }
