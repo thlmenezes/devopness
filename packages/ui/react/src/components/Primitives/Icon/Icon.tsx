@@ -52,7 +52,7 @@ const Icon = (props: IconProps) => {
   return iconLoader(
     props.name,
     props.size,
-    props.opacity ? getOpacity(colorHex, props.opacity) : colorHex,
+    props.opacity !== undefined ? getOpacity(colorHex, props.opacity) : colorHex,
     OPACITY_FULL,
     props.ariaLabel
   )

@@ -49,4 +49,19 @@ describe('Icon', () => {
       getOpacity(getColor('green.800'), 0.7)
     )
   })
+
+  it('render correctly with opacity 0', () => {
+    render(
+      <Icon
+        name="tag"
+        color="green.800"
+        opacity={0}
+        ariaLabel="test-icon-tag"
+      />
+    )
+
+    const subjectIcon = screen.getByLabelText('test-icon-tag')
+    expect(subjectIcon).toBeInTheDocument()
+    expect(subjectIcon.getAttribute('color')).toEqual(`${getColor('green.800')}0`)
+  })
 })
