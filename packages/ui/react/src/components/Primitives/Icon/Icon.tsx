@@ -16,9 +16,10 @@ type IconProps = {
   /**
    * Defines element foreground/fill color
    *
+   * https://developer.mozilla.org/en-US/docs/Web/CSS/color
+   * https://developer.mozilla.org/en-US/docs/Web/CSS/fill
+   *
    * @see {getColor}
-   * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/color}
-   * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/fill}
    */
   color?: Color
   /**

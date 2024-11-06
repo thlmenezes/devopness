@@ -243,6 +243,9 @@ const ElementAnchor = ({
   )
 }
 
+/**
+ * Display a menu with a list of options
+ */
 const Dropdown = ({ onToggle, onSelect, content, ...props }: DropdownProps) => (
   <PopupState
     variant="popover"

@@ -5,20 +5,20 @@ import { render, screen } from '@testing-library/react'
 import { Link } from '.'
 import { getColor } from 'src/colors'
 
-const LinkProps = {
-  href: 'https://www.devopness.com',
+const LINK_PROPS = {
+  url: 'https://www.devopness.com',
 }
 
 describe('Link', () => {
   it('render correctly', () => {
-    render(<Link to={LinkProps.href}>LinkComponent</Link>)
+    render(<Link to={LINK_PROPS.url}>LinkComponent</Link>)
 
     const expectedText = screen.getByText('LinkComponent')
     expect(expectedText).toBeInTheDocument()
   })
 
   it('render correctly without props.children', () => {
-    render(<Link to={LinkProps.href} />)
+    render(<Link to={LINK_PROPS.url} />)
 
     const expectedText = screen.getByText('https://www.devopness.com')
     expect(expectedText).toBeInTheDocument()
@@ -28,7 +28,7 @@ describe('Link', () => {
     render(
       <Link
         color="purple.800"
-        to={LinkProps.href}
+        to={LINK_PROPS.url}
       />
     )
 
@@ -46,7 +46,7 @@ describe('Link', () => {
     render(
       <Link
         style={styles}
-        to={LinkProps.href}
+        to={LINK_PROPS.url}
       />
     )
 
