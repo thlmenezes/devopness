@@ -10,13 +10,13 @@ type IconProps = {
    *
    * @see iconLoader
    */
-  name: IconName
+  name: IconName | undefined
   /** Defines element height and width */
   size?: number
   /**
    * Defines element foreground/fill color
    *
-   * @see getColor
+   * @see {getColor}
    * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/color}
    * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/fill}
    */
