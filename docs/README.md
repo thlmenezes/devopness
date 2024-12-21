@@ -38,7 +38,80 @@ It is Devopness API responsibility to communicate the validation rules to the en
 ## Predefined variables
 Here is a list of predefined variables that can be set in the `front-matter` block of a documentation topic:
 
-| Variable | Description                               | Required       |
-|----------|-------------------------------------------|----------------|
-| `title`  | The title of the documentation topic      | Yes            |
-| `intro`  | A short paragraph introducing the topic   | No             |
+| Variable               | Description                               | Required  |
+|------------------------|-------------------------------------------|-----------|
+| `title`                | The title of the documentation topic      | Yes       |
+| `description`          | Page meta description                     | No        |
+| `pagination_prev`      | Previous link in pagination               | No        |
+| `pagination_next`      | Next link in pagination                   | No        |
+| `related`              | Related links to other topics             | No        |
+| `required_permissions` | Required permissions to follow the steps  | No        |
+
+For more details on available frontmatter options, see the [Docusaurus Content Docs Plugin documentation](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs#markdown-front-matter).
+
+### Deprecated Variables
+
+The following variables are deprecated and are currently being transformed by our configuration. Here's how to migrate:
+
+#### `intro`
+
+**Why**: Content should be part of the main document body, not frontmatter.
+
+Before:
+
+```yaml
+---
+title: My Document
+intro: This is an introduction to my document
+---
+```
+
+After:
+
+```yaml
+---
+title: My Document
+---
+This is an introduction to my document
+```
+
+#### `links.previous` and `links.next`
+
+**Why**: Use standard Docusaurus pagination variables.
+
+Before:
+```yaml
+---
+title: My Document
+links:
+  previous: /docs/getting-started
+  next: /docs/advanced-usage
+---
+```
+
+After:
+```yaml
+---
+title: My Document
+pagination_prev: getting-started
+pagination_next: advanced-usage
+---
+```
+
+Note: The new pagination variables don't require the `/docs/` prefix as Docusaurus handles this automatically.
+
+## Mentioning Other Posts
+
+You can reference other documentation pages using the markdown reference link syntax: `[/path/to/post]`. The path should be relative to the documentation root.
+
+Example:
+```markdown
+See [/docs/getting-started] for more information on how to begin.
+
+You might also want to check our [/docs/api/authentication] guide.
+```
+
+This will be automatically converted into clickable links in the documentation. The paths should:
+- Start with `/docs/`
+- Match an existing documentation page
+- Use the full path for the file, without the `.md` extension
